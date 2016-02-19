@@ -4,6 +4,8 @@ from marshmallow import Schema, fields, ValidationError, pre_load
 
 db = SQLAlchemy()
 
+# deprecated Serializer. using marshmallow
+#
 # this Serializer class is needed to serialize a SQLAlchemy object to jsonify
 # class Serializer(object):
 #     def serialize(self):

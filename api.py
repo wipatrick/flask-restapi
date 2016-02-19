@@ -8,6 +8,10 @@ app = Flask(__name__)
 app.config.from_pyfile('conf/psql-config.py')
 db.init_app(app)
 
+@app.before_first_request
+def create_database():
+     db.create_all()
+
 @app.route('/api/v1/sensors/', methods = ['GET'])
 def get_all_sensors():
     s = Meta.query.all()
@@ -41,7 +45,7 @@ def get_all_data_sensor(id):
 # @app.route("/api/v1/sensors/data/latest")
 # def get_latest_data_all_sensors():
 
-@app.route("/api/v1/sensors/<int:id>/data/latest" methods = ['GET'])
+@app.route("/api/v1/sensors/<int:id>/data/latest", methods = ['GET'])
 def get_latest_data_sensor(id):
     try:
         m = Meta.query.filter_by(sid=id).one()
@@ -61,4 +65,4 @@ def get_latest_data_sensor(id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=8080)
