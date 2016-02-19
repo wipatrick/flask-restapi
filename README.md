@@ -31,4 +31,4 @@ e45b7aeb04ce        flask-app:2.7       "python ./api.py"        2 seconds ago  
 
 ## To Do:
 * define endpoint to receive latest values for all sensors
-* make docker image smaller (~680MB due to base image python:2.7)
+* make docker image smaller (~700MB due to base image python:2.7)
