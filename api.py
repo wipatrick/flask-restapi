@@ -41,7 +41,7 @@ def get_all_data_sensor(id):
 # @app.route("/api/v1/sensors/data/latest")
 # def get_latest_data_all_sensors():
 
-@app.route("/api/v1/sensors/<int:id>/data/latest")
+@app.route("/api/v1/sensors/<int:id>/data/latest" methods = ['GET'])
 def get_latest_data_sensor(id):
     try:
         m = Meta.query.filter_by(sid=id).one()
