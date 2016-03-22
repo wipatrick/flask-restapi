@@ -1,4 +1,3 @@
-# sensor table representing different kinds of sensors with relevant attributes
 create table tbl_sensor_meta(
   sid serial primary key not null,
   name text,
@@ -12,9 +11,6 @@ create table tbl_sensor_meta(
   position text,
   description text);
 
-select * from tbl_sensor_meta;
-
-# web thermograph: temperature sensor
 insert into tbl_sensor_meta (
   name,
   type,
@@ -36,7 +32,6 @@ values
   ('fm_00','flowmeter','volume flow','literPerHour',0.1,'literPerHour',1.0/30.0,'hertz','heating-wall-south','flowmeter 0 measuring volume flow');
 
 
-# table for web thermograph sensor 00 that used for logging measured values
 create table tbl_sensor_data (
   id serial primary key not null,
   sid int REFERENCES tbl_sensor_meta (sid),
@@ -90,8 +85,3 @@ values
 (5, 1452510897.95, 23),
 (6, 1452510897.95, 22.4),
 (7, 1452510897.95, 0);
-
-# transform unix epoch to timestamp with accuracy based on minutes
--- select wt_02_id, date_trunc('minute', to_timestamp(unix_epoch)), to_timestamp(unix_epoch)
--- from tbl_sensor_wt_02 a, tbl_sensor b
--- where a.sid = b.sid;

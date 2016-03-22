@@ -12,6 +12,22 @@ docker images
 REPOSITORY                                TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 flask-app                                 2.7                 sha256:eaf3e        10 minutes ago      699.2 MB
 ```
+For testing purposes, you can use official [PostgreSQL](https://hub.docker.com/r/_/postgres/) Docker image as follow:
+```
+docker pull postgres:9.3
+docker run -d -p 5432:5432 -v $(pwd)/sql:/data -e POSTGRES_PASSWORD=password --name postgres-db postgres:9.3
+docker exec -it postgres-db bash
+root@8254335c8597:/# psql -U postgres -d postgres -a -f /data/setup.sql
+...
+(3, 1452510897.95, 21.9),
+(4, 1452510897.95, 21.8),
+(5, 1452510897.95, 23),
+(6, 1452510897.95, 22.4),
+(7, 1452510897.95, 0);
+INSERT 0 42
+root@80f7ee057570:/# exit
+```
+
 Now you can ```docker run``` the flask-app by setting the neccessary environment variables:
 ```
 docker run -d \
