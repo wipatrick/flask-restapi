@@ -50,6 +50,6 @@ e45b7aeb04ce        flask-app:2.7       "python ./api.py"        2 seconds ago  
 | HTTP | Endpoint                         | Description                      |
 |------|----------------------------------|----------------------------------|
 | GET  | /api/v1/sensors                  | get metadata from all sensors    |
-| GET  | /api/v1/sensors/<id>             | get metadata from sensor <id>    |
-| GET  | /api/v1/sensors/<id>/data        | get all data from sensor <id>    |
-| GET  | /api/v1/sensors/<id>/data/latest | get latest data from sensor <id> |
+| GET  | /api/v1/sensors/\<id\>             | get metadata from sensor <id>    |
+| GET  | /api/v1/sensors/\<id\>/data        | get all data from sensor <id>    |
+| GET  | /api/v1/sensors/\<id\>/data/latest | get latest data from sensor <id> |
