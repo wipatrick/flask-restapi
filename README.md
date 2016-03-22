@@ -45,6 +45,11 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 e45b7aeb04ce        flask-app:2.7       "python ./api.py"        2 seconds ago       Up 1 seconds        0.0.0.0:8080->8080/tcp   flask
 ```
 
-## To Do:
-* define endpoint to receive latest values for all sensors
-* make docker image smaller (~700MB due to base image python:2.7)
+## API
+
+| HTTP | Endpoint                         | Description                      |
+|------|----------------------------------|----------------------------------|
+| GET  | /api/v1/sensors                  | get metadata from all sensors    |
+| GET  | /api/v1/sensors/<id>             | get metadata from sensor <id>    |
+| GET  | /api/v1/sensors/<id>/data        | get all data from sensor <id>    |
+| GET  | /api/v1/sensors/<id>/data/latest | get latest data from sensor <id> |
